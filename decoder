@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+import base64
+'''
+Let's see what encryption mean post decrytion of base64 at step 1 of decoding.
+
+base64 is an *encoding* tool, which encodes it with a radix-64 representation - most of the archaic websites used base64 as a quick and dirty way to identify users using a MIME content transfer enconding technique.
+
+Of couse, time has gotten ahead and advanced and these have now been switched to salted/custom versions of MIME identification.
+
+Encryption on the other hand is a one-way function. It has a key to lock, and that very key is only able to decrypt the content.
+
+Proof-of-concept decoder by Ashutosh Gautam - aka, JumpThere
+
+https://github.com/JumpThere
+
+'''
+
+inp_string = "SWYgeW91IGtub3cgdGhlIGRpZmZlcmVuY2UgYmV0d2VlbiBlbmNyeXB0aW9uIGFuZCBlbmNvZGluZywgYW5kICBoYXZlIGEgcGFzc2lvbiBmb3IgY3liZXIgc2VjdXJpdHksIG1ha2Ugc3VyZSB5b3UgaW5jbHVkZSAgdGhlIG51bWJlciA0MiBpbiB5b3VyIGNvdmVyIGxldHRlci4="
+times = 1
+for i in range(times):
+    inp_string = base64.b64decode(inp_string)
+out_string = inp_string.decode('UTF-8')
+print(out_string)
